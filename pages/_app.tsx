@@ -2,13 +2,20 @@ import "@styles/globals.css";
 import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import { MainLayout } from "@modules";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 export default function App({ Component, pageProps }: AppProps) {
+	const queryClient = new QueryClient();
+
 	return (
-		<ChakraProvider>
-			<MainLayout>
-				<Component {...pageProps} />
-			</MainLayout>
-		</ChakraProvider>
+		<QueryClientProvider client={queryClient}>
+			<ChakraProvider>
+				<MainLayout>
+					<Component {...pageProps} />
+				</MainLayout>
+			</ChakraProvider>
+			<ReactQueryDevtools initialIsOpen={false} />
+		</QueryClientProvider>
 	);
 }
