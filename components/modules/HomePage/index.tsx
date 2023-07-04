@@ -10,7 +10,7 @@ const HomePage = () => {
 	return (
 		<Flex
 			flexWrap="wrap"
-			p={{ base: 8, md: 10 }}
+			p={8}
 			gap={{ base: 6, md: 10 }}
 			justifyContent="space-between"
 		>
