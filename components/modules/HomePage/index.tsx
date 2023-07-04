@@ -11,7 +11,6 @@ const HomePage = () => {
 		<Flex
 			flexWrap="wrap"
 			p={{ base: 8, md: 10 }}
-			pt={{ base: 24, md: 24 }}
 			gap={{ base: 6, md: 10 }}
 			justifyContent="space-between"
 		>
