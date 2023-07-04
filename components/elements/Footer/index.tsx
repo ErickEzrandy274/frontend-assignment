@@ -9,7 +9,7 @@ const Footer = () => {
 			textAlign="center"
 			fontWeight="semibold"
 		>
-			<Text>© Online Store Sathi. All rights reserved</Text>
+			<Text>© OnlineStore. All rights reserved</Text>
 		</Box>
 	);
 };
