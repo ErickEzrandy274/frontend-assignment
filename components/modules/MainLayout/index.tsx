@@ -6,7 +6,7 @@ import { Flex } from "@chakra-ui/react";
 
 const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 	return (
-		<Flex flexDir="column" justifyContent="space-between" minH="100vh">
+		<Flex flexDir="column" justifyContent="space-between" minH="100vh" pt={20}>
 			<Navbar />
 			{children}
 			<Footer />
