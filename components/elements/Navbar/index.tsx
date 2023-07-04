@@ -12,6 +12,7 @@ import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { routeList } from "./constant";
 import { NavLinkProps } from "./interface";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const NavLink: React.FC<NavLinkProps> = ({ name, url, onClose }) => {
 	const { pathname, push } = useRouter();
@@ -47,9 +48,11 @@ const Navbar = () => {
 		<Box bg="cyan.500" px={4} position="fixed" top={0} zIndex={2} w="full">
 			<Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
 				<HStack spacing={8} alignItems={"center"}>
-					<Heading bgGradient="linear(to-br, #facc15, #ec4899)" bgClip="text">
-						OnlineStore
-					</Heading>
+					<Link href="/">
+						<Heading bgGradient="linear(to-br, #facc15, #ec4899)" bgClip="text">
+							OnlineStore
+						</Heading>
+					</Link>
 					<HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
 						{routeList.map((link) => (
 							<NavLink key={link.url} {...link} onClose={onClose} />
