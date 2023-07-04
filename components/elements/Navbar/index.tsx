@@ -33,6 +33,7 @@ const NavLink: React.FC<NavLinkProps> = ({ name, url, onClose }) => {
 			bg={pathname === url ? "gray.500" : "transparent"}
 			color={pathname === url ? "gray.200" : "black"}
 			fontWeight={pathname === url ? "semibold" : "medium"}
+			cursor="pointer"
 		>
 			{name}
 		</Box>
