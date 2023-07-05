@@ -5,7 +5,7 @@ import React from "react";
 
 const DetailProduct: React.FC<{ data: ProductCardProps }> = ({ data }) => {
 	return (
-		<Flex flexDir="column" gap={5} p={8} pt={0} m="auto">
+		<Flex flexDir="column" gap={5} p={{ base: 4, md: 8 }} pt={0} m="auto">
 			<Heading fontSize="4xl" textAlign="center">
 				Product Detail
 			</Heading>
@@ -17,14 +17,12 @@ const DetailProduct: React.FC<{ data: ProductCardProps }> = ({ data }) => {
 				border="2px solid gray"
 				p={5}
 				m="auto"
-				gap={5}
+				gap={6}
 			>
 				<Image
-					rounded="lg"
 					height={230}
-					width={282}
-					my="auto"
-					blendMode="darken"
+					width={300}
+					m="auto"
 					objectFit="contain"
 					src={data.image}
 					alt={data.title}
@@ -32,14 +30,14 @@ const DetailProduct: React.FC<{ data: ProductCardProps }> = ({ data }) => {
 
 				<Flex flexDir="column" gap={3} fontWeight="medium">
 					<Heading
-						fontSize={{ base: "3xl", md: "4xl" }}
+						fontSize={{ base: "2xl", md: "4xl" }}
 						textAlign={{ base: "center", md: "start" }}
 					>
 						{data.title}
 					</Heading>
 					<Text>Category: {data.category}</Text>
 					<Text>Description: {data.description}</Text>
-					<Text>Price: Only ${data.price}</Text>
+					<Text>Price: ${data.price}</Text>
 
 					<Box display="flex" mt="2" alignItems="center">
 						{Array(5)
