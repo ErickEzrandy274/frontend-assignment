@@ -11,13 +11,17 @@ export const getProducts = async () => {
 	}
 };
 
-export const getProductById = async (id: number) => {
+export const getProductById = async (id: any) => {
+	if (Number.isNaN(id)) {
+		return {};
+	}
+
 	try {
 		const { data } = await axios.get(
 			`${process.env.NEXT_PUBLIC_URL}/products/${id}`
 		);
 		toast.success("Successfully fetching detail product!");
-		return data;
+		return data ?? {};
 	} catch (error: any) {
 		toast.error(error.message);
 	}
