@@ -29,9 +29,9 @@ const HomePage = () => {
 	return (
 		<Flex
 			flexWrap="wrap"
-			p={8}
+			p={{ base: 4, md: 8 }}
 			gap={{ base: 6, md: 10 }}
-			justifyContent="space-between"
+			justifyContent={{ base: "center", md: "space-between" }}
 			m="auto"
 			textAlign="center"
 		>

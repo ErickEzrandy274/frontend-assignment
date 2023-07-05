@@ -21,16 +21,21 @@ const DetailProduct: React.FC<{ data: ProductCardProps }> = ({ data }) => {
 			>
 				<Image
 					height={230}
-					width={300}
+					width={{ base: 200, md: 300 }}
 					m="auto"
 					objectFit="contain"
 					src={data.image}
 					alt={data.title}
 				/>
 
-				<Flex flexDir="column" gap={3} fontWeight="medium">
+				<Flex
+					flexDir="column"
+					gap={3}
+					fontWeight="medium"
+					fontSize={{ base: "sm", md: "md" }}
+				>
 					<Heading
-						fontSize={{ base: "2xl", md: "4xl" }}
+						fontSize={{ base: "xl", md: "4xl" }}
 						textAlign={{ base: "center", md: "start" }}
 					>
 						{data.title}
