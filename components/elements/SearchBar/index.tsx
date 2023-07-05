@@ -22,7 +22,7 @@ const SearchBar = () => {
 			border="2px solid white"
 			px={3}
 			py={2}
-			w="72"
+			w={{ md: "72" }}
 			gap={3}
 			rounded="xl"
 		>
@@ -37,7 +37,7 @@ const SearchBar = () => {
 				placeholder="Find the product here..."
 				sx={{
 					"&::placeholder": {
-						color: "black", // Set the desired color here
+						color: "black",
 					},
 				}}
 			/>
