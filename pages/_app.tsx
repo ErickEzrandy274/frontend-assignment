@@ -4,16 +4,19 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { MainLayout } from "@modules";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import { KeywordContextProvider, theme } from "@utils";
 
 export default function App({ Component, pageProps }: AppProps) {
 	const queryClient = new QueryClient();
 
 	return (
 		<QueryClientProvider client={queryClient}>
-			<ChakraProvider>
-				<MainLayout>
-					<Component {...pageProps} />
-				</MainLayout>
+			<ChakraProvider theme={theme}>
+				<KeywordContextProvider>
+					<MainLayout>
+						<Component {...pageProps} />
+					</MainLayout>
+				</KeywordContextProvider>
 			</ChakraProvider>
 			<ReactQueryDevtools initialIsOpen={false} />
 		</QueryClientProvider>
