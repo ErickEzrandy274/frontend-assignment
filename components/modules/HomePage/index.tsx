@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Flex } from "@chakra-ui/react";
-import { ProductCard, ProductCardProps } from "@elements";
+import { Flex, Heading } from "@chakra-ui/react";
+import { PrimaryLoader, ProductCard, ProductCardProps } from "@elements";
 import { getProducts, useKeyword } from "@utils";
 import { useQuery } from "react-query";
 
@@ -22,16 +22,26 @@ const HomePage = () => {
 		}
 	}, [data, isLoading, keyword]);
 
+	if (isLoading) {
+		return <PrimaryLoader />;
+	}
+
 	return (
 		<Flex
 			flexWrap="wrap"
 			p={8}
 			gap={{ base: 6, md: 10 }}
 			justifyContent="space-between"
+			m="auto"
+			textAlign="center"
 		>
-			{filterProduct?.map((product: ProductCardProps) => {
-				return <ProductCard key={product.id} {...product} />;
-			})}
+			{filterProduct?.length ? (
+				filterProduct.map((product: ProductCardProps) => {
+					return <ProductCard key={product.id} {...product} />;
+				})
+			) : (
+				<Heading color="gray.500">There is no product named {keyword}!</Heading>
+			)}
 		</Flex>
 	);
 };
