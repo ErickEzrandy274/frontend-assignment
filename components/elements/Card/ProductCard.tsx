@@ -30,6 +30,7 @@ const ProductCard: React.FC<ProductCardProps> = (props) => {
 			rounded="2xl"
 			pos="relative"
 			zIndex={1}
+			gap={3}
 		>
 			<Box rounded="lg" mt={0} pos="relative" height="230px">
 				<Image
