@@ -9,37 +9,8 @@ import {
 	Heading,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import { routeList } from "./constant";
-import { NavLinkProps } from "./interface";
-import { useRouter } from "next/router";
+import { SearchBar } from "@elements";
 import Link from "next/link";
-
-const NavLink: React.FC<NavLinkProps> = ({ name, url, onClose }) => {
-	const { pathname, push } = useRouter();
-	const handleClick = () => {
-		push(url);
-		onClose();
-	};
-
-	return (
-		<Box
-			onClick={handleClick}
-			px={2}
-			py={1}
-			rounded={"md"}
-			_hover={{
-				bg: "gray.500",
-				color: "gray.200",
-			}}
-			bg={pathname === url ? "gray.500" : "transparent"}
-			color={pathname === url ? "gray.200" : "black"}
-			fontWeight={pathname === url ? "semibold" : "medium"}
-			cursor="pointer"
-		>
-			{name}
-		</Box>
-	);
-};
 
 const Navbar = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
@@ -53,11 +24,10 @@ const Navbar = () => {
 							OnlineStore
 						</Heading>
 					</Link>
-					<HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
-						{routeList.map((link) => (
-							<NavLink key={link.url} {...link} onClose={onClose} />
-						))}
-					</HStack>
+
+					<Box display={{ base: "none", md: "block" }}>
+						<SearchBar />
+					</Box>
 				</HStack>
 
 				<IconButton
@@ -69,15 +39,13 @@ const Navbar = () => {
 				/>
 			</Flex>
 
-			{isOpen ? (
+			{isOpen && (
 				<Box pb={4} display={{ md: "none" }}>
 					<Stack as={"nav"} spacing={2}>
-						{routeList.map((link) => (
-							<NavLink key={link.url} {...link} onClose={onClose} />
-						))}
+						<SearchBar />
 					</Stack>
 				</Box>
-			) : null}
+			)}
 		</Box>
 	);
 };
